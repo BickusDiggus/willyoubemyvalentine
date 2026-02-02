@@ -1,0 +1,17 @@
+{
+  "name": "valentine-game",
+  "version": "1.0.0",
+  "description": "Will You Be My Valentine? - A romantic interactive game",
+  "main": "index.html",
+  "scripts": {
+    "deploy": "node deploy.js",
+    "deploy:dry-run": "node deploy.js --dry-run",
+    "deploy:verbose": "node deploy.js --verbose"
+  },
+  "keywords": ["valentine", "game", "romantic"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "basic-ftp": "^5.0.3"
+  }
+}

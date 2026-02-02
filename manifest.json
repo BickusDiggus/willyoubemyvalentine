@@ -1,0 +1,20 @@
+{
+    "name": "Will You Be My Valentine?",
+    "short_name": "Be My Valentine",
+    "description": "Create a magical Valentine's Day surprise! Generate personalized 'Will You Be My Valentine?' links with playful animations and romantic celebrations.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fce4ec",
+    "theme_color": "#ff6b9d",
+    "orientation": "portrait-primary",
+    "categories": ["entertainment", "lifestyle"],
+    "lang": "en",
+    "icons": [
+        {
+            "src": "favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        }
+    ]
+}

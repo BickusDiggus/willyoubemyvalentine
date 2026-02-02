@@ -1,0 +1,20 @@
+# robots.txt for willyoubemyvalentine.fun
+# Allow all crawlers to index the site
+
+User-agent: *
+Allow: /
+
+# Allow Twitter/X bot explicitly for card previews
+User-agent: Twitterbot
+Allow: /
+
+# Allow Facebook crawler for OG previews
+User-agent: facebookexternalhit
+Allow: /
+
+# Allow LinkedIn crawler
+User-agent: LinkedInBot
+Allow: /
+
+# Sitemap location
+Sitemap: https://willyoubemyvalentine.fun/sitemap.xml
