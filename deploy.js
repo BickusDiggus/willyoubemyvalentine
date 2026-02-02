@@ -37,6 +37,7 @@ const config = {
         
         // SEO files
         'sitemap.xml',
+        'sitemap.txt',
         'robots.txt',
         'manifest.json',
         
