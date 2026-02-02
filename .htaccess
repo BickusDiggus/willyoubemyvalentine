@@ -5,7 +5,16 @@ DirectoryIndex index.html index.htm index.php
 <IfModule mod_mime.c>
     AddType application/xml .xml
     AddType text/xml .xml
+    AddType text/plain .txt
 </IfModule>
+
+# Ensure sitemaps are accessible to all bots
+<Files ~ "sitemap.*\.(xml|txt)$">
+    <IfModule mod_headers.c>
+        Header set X-Robots-Tag "noindex"
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+    </IfModule>
+</Files>
 
 # Enable GZIP compression for better performance
 <IfModule mod_deflate.c>
