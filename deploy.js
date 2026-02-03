@@ -43,6 +43,7 @@ const config = {
         
         // Images (legacy)
         'favicon.svg',
+        'favicon.ico',
         'og-image.jpeg'
     ],
     
