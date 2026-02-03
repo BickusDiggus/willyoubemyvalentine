@@ -66,13 +66,17 @@
     <meta name="msapplication-TileColor" content="#ff6b9d">
     <meta name="msapplication-TileImage" content="/Favicon/ms-icon-144x144.png">
     
-    <!-- Performance -->
+    <!-- Performance: Preconnect & DNS Prefetch -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://firebaseio.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://www.gstatic.com">
     
     <!-- Use main styles.css -->
-    <link rel="stylesheet" href="../styles.css?v=16">
+    <link rel="stylesheet" href="../styles.css?v=18">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
     <!-- Prevent flash when viewing e-card -->
@@ -1083,8 +1087,8 @@
         </div>
     </div>
 
-    <!-- QR Code Library -->
-    <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+    <!-- QR Code Library - Deferred -->
+    <script defer src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
     
     <!-- Firebase SDK -->
     <script type="module">
