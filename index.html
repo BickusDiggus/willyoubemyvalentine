@@ -653,6 +653,88 @@
                 font-size: 1rem;
             }
         }
+        
+        /* TOP SUPPORT BANNER - Prominent on intro screen */
+        .top-support-banner {
+            background: linear-gradient(135deg, #FFEB3B 0%, #FFC107 50%, #FF9800 100%);
+            border-radius: 16px;
+            padding: 15px 20px;
+            margin: 15px 0 8px 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(255, 193, 7, 0.4);
+            animation: glow-pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes glow-pulse {
+            0%, 100% { box-shadow: 0 4px 20px rgba(255, 193, 7, 0.4); }
+            50% { box-shadow: 0 6px 30px rgba(255, 193, 7, 0.6); }
+        }
+        
+        .top-support-stats {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        
+        .top-stat {
+            color: #333;
+            font-size: 0.9rem;
+        }
+        
+        .top-stat.highlight {
+            background: #4CAF50;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .top-stat-divider {
+            color: #795548;
+            opacity: 0.5;
+        }
+        
+        .top-support-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #000;
+            color: #FFDD00;
+            padding: 10px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .top-support-link:hover {
+            transform: scale(1.05);
+            background: #222;
+        }
+        
+        @media (max-width: 600px) {
+            .top-support-stats {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .top-stat-divider {
+                display: none;
+            }
+            
+            .top-stat {
+                font-size: 0.85rem;
+            }
+            
+            .top-support-link {
+                font-size: 0.9rem;
+                padding: 8px 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -784,6 +866,20 @@
                             <span>📋</span> Copy Link
                         </button>
                     </div>
+                </div>
+                
+                <!-- TOP SUPPORT BANNER - Prominent -->
+                <div class="top-support-banner">
+                    <div class="top-support-stats">
+                        <span class="top-stat">💕 <strong>50,000+</strong> Valentines Sent</span>
+                        <span class="top-stat-divider">•</span>
+                        <span class="top-stat highlight">🏆 <strong>#1 on Google</strong></span>
+                        <span class="top-stat-divider">•</span>
+                        <span class="top-stat">⭐ <strong>100% Free</strong> Forever</span>
+                    </div>
+                    <a href="https://buymeacoffee.com/vibecodingisfun" target="_blank" rel="noopener" class="top-support-link">
+                        <span>☕</span> Love it? Buy Me a Coffee!
+                    </a>
                 </div>
                 
                 <p class="scroll-hint" onclick="scrollToInfo()" style="margin-top: 4px; font-size: 0.85rem;">↓ Learn More</p>
