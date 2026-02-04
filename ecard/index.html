@@ -2157,7 +2157,7 @@
                 if (window.liveCounterRetries < 5) {
                     setTimeout(initLiveCounter, 500);
                 } else {
-                    counterEl.textContent = '2,000+';
+                    counterEl.textContent = '50,000+';
                 }
                 return;
             }
@@ -2169,11 +2169,11 @@
                     const count = Object.keys(data).length;
                     animateCounter(counterEl, count);
                 } else {
-                    counterEl.textContent = '2,000+';
+                    counterEl.textContent = '50,000+';
                 }
             }, (error) => {
                 // Permission denied - show estimated count silently
-                counterEl.textContent = '2,000+';
+                counterEl.textContent = '50,000+';
             });
         }
         

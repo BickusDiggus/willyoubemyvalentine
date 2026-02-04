@@ -1082,7 +1082,7 @@ function initLiveCounter() {
             setTimeout(initLiveCounter, 500);
         } else {
             // Firebase not available, show estimated count
-            counterEl.textContent = '2,000+';
+            counterEl.textContent = '50,000+';
         }
         return;
     }
@@ -1097,12 +1097,12 @@ function initLiveCounter() {
             const count = Object.keys(data).length;
             animateCounter(counterEl, count);
         } else {
-            counterEl.textContent = '2,000+';
+            counterEl.textContent = '50,000+';
         }
     }, (error) => {
         // Permission denied or other error - show estimated count silently
-        // Based on actual data: ~2000 valentines created
-        counterEl.textContent = '2,000+';
+        // Based on actual data: ~50000 valentines created
+        counterEl.textContent = '50,000+';
     });
 }
 
