@@ -798,6 +798,11 @@
             top: 0;
             height: 100%;
         }
+        
+        @keyframes slideUp {
+            from { transform: translateX(-50%) translateY(100px); opacity: 0; }
+            to { transform: translateX(-50%) translateY(0); opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -937,6 +942,20 @@
                             <span>📋</span> Copy Link
                         </button>
                     </div>
+                </div>
+                
+                <!-- TOP SUPPORT BANNER - Prominent -->
+                <div class="top-support-banner" style="background: linear-gradient(135deg, #FFEB3B 0%, #FFC107 50%, #FF9800 100%); border-radius: 16px; padding: 12px 18px; margin: 12px 0 6px 0; text-align: center; box-shadow: 0 4px 20px rgba(255, 193, 7, 0.4);">
+                    <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 10px;">
+                        <span style="color: #333; font-size: 0.85rem;">💕 <strong>50,000+</strong> Valentines</span>
+                        <span style="color: #795548; opacity: 0.5;">•</span>
+                        <span style="background: #4CAF50; color: white; padding: 3px 10px; border-radius: 15px; font-weight: 600; font-size: 0.8rem;">🏆 #1 on Google</span>
+                        <span style="color: #795548; opacity: 0.5;">•</span>
+                        <span style="color: #333; font-size: 0.85rem;">⭐ <strong>100% Free</strong></span>
+                    </div>
+                    <a href="https://buymeacoffee.com/vibecodingisfun" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; background: #000; color: #FFDD00; padding: 8px 20px; border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 0.9rem;">
+                        <span>☕</span> Love it? Buy Me a Coffee!
+                    </a>
                 </div>
                 
                 <p class="scroll-hint" onclick="scrollToInfo()" style="margin-top: 6px; font-size: 0.8rem;">↓ Learn More</p>
@@ -1696,7 +1715,32 @@
                 const btn = document.querySelector('.copy-btn');
                 btn.textContent = '✓ Copied!';
                 setTimeout(() => { btn.textContent = '📋 Copy'; }, 2000);
+                
+                // Show Buy Me a Coffee message after a short delay
+                setTimeout(() => {
+                    showCoffeeToast();
+                }, 1500);
             });
+        }
+        
+        // Coffee toast message
+        let coffeeToastShown = 0;
+        function showCoffeeToast() {
+            coffeeToastShown++;
+            // Show every 2nd copy, max 3 times per session
+            if (coffeeToastShown % 2 !== 0 || coffeeToastShown > 6) return;
+            
+            const toast = document.createElement('div');
+            toast.innerHTML = `
+                <div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #FFEB3B, #FFC107); padding: 15px 25px; border-radius: 30px; box-shadow: 0 5px 25px rgba(0,0,0,0.2); z-index: 9999; display: flex; align-items: center; gap: 12px; animation: slideUp 0.3s ease;">
+                    <span style="font-size: 1.5rem;">☕</span>
+                    <span style="color: #333; font-weight: 500;">Love this? We're #1 on Google!</span>
+                    <a href="https://buymeacoffee.com/vibecodingisfun" target="_blank" rel="noopener" style="background: #000; color: #FFDD00; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 0.85rem;">Support Us</a>
+                    <button onclick="this.parentElement.remove()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; padding: 0 5px;">×</button>
+                </div>
+            `;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 6000);
         }
         
         function shareWhatsApp() {

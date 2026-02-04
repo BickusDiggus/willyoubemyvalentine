@@ -1931,6 +1931,14 @@ body {
     font-size: 0.8rem;
     font-weight: 500;
     transition: var(--transition-smooth);
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+a.keyword-tag {
+    text-decoration: none;
+    color: var(--white);
 }
 
 .keyword-tag:hover {

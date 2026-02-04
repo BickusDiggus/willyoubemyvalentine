@@ -11,10 +11,9 @@
     "lang": "en",
     "icons": [
         {
-            "src": "favicon.svg",
-            "sizes": "any",
-            "type": "image/svg+xml",
-            "purpose": "any"
+            "src": "/favicon.ico",
+            "sizes": "64x64",
+            "type": "image/x-icon"
         }
     ]
 }

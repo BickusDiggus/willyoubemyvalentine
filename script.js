@@ -266,6 +266,9 @@ function copyLink(inputId = 'generatedLink', textId = 'copyText') {
         setTimeout(() => {
             copyText.textContent = '📋 Copy';
         }, 2000);
+        
+        // Show Buy Me a Coffee toast after short delay
+        setTimeout(() => showCoffeeToast(), 1500);
     }).catch(() => {
         // Fallback for older browsers
         document.execCommand('copy');
@@ -274,7 +277,31 @@ function copyLink(inputId = 'generatedLink', textId = 'copyText') {
         setTimeout(() => {
             copyText.textContent = '📋 Copy';
         }, 2000);
+        
+        // Show Buy Me a Coffee toast after short delay
+        setTimeout(() => showCoffeeToast(), 1500);
     });
+}
+
+// Coffee toast - shows every 2nd copy, max 3 times per session
+let coffeeToastCount = 0;
+function showCoffeeToast() {
+    coffeeToastCount++;
+    // Show on 2nd, 4th, 6th copy only
+    if (coffeeToastCount % 2 !== 0 || coffeeToastCount > 6) return;
+    
+    const toast = document.createElement('div');
+    toast.id = 'coffeeToast';
+    toast.innerHTML = `
+        <div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #FFEB3B, #FFC107); padding: 15px 25px; border-radius: 30px; box-shadow: 0 5px 25px rgba(0,0,0,0.2); z-index: 9999; display: flex; align-items: center; gap: 12px; animation: slideUp 0.3s ease;">
+            <span style="font-size: 1.5rem;">☕</span>
+            <span style="color: #333; font-weight: 500;">Love this? We're #1 on Google!</span>
+            <a href="https://buymeacoffee.com/vibecodingisfun" target="_blank" rel="noopener" style="background: #000; color: #FFDD00; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 0.85rem;">Support Us</a>
+            <button onclick="document.getElementById('coffeeToast').remove()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; padding: 0 5px; color: #333;">×</button>
+        </div>
+    `;
+    document.body.appendChild(toast);
+    setTimeout(() => { if (document.getElementById('coffeeToast')) document.getElementById('coffeeToast').remove(); }, 6000);
 }
 
 /**

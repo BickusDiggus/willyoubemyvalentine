@@ -85,8 +85,7 @@ Valentine/
 │   ├── valentine-week-2026/
 │   ├── cute-will-you-be-my-valentine-ideas/
 │   └── will-you-be-my-valentine-digital-card/
-├── Favicon/            # Complete favicon set (all sizes)
-├── favicon.svg         # Site favicon
+├── favicon.ico         # Site favicon
 ├── og-image.jpeg        # Social media preview image
 ├── manifest.json       # PWA manifest
 ├── sitemap.xml         # SEO sitemap
