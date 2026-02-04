@@ -283,12 +283,12 @@ function copyLink(inputId = 'generatedLink', textId = 'copyText') {
     });
 }
 
-// Coffee toast - shows every 2nd copy, max 3 times per session
+// Coffee toast - shows on 1st, 3rd, 5th copy (max 3 times per session)
 let coffeeToastCount = 0;
 function showCoffeeToast() {
     coffeeToastCount++;
-    // Show on 2nd, 4th, 6th copy only
-    if (coffeeToastCount % 2 !== 0 || coffeeToastCount > 6) return;
+    // Show on 1st, 3rd, 5th copy only (odd numbers, max 3 shows)
+    if (coffeeToastCount % 2 === 0 || coffeeToastCount > 5) return;
     
     const toast = document.createElement('div');
     toast.id = 'coffeeToast';

@@ -1767,12 +1767,12 @@
             });
         }
         
-        // Coffee toast message
+        // Coffee toast message - shows on 1st, 3rd, 5th copy (max 3 times)
         let coffeeToastShown = 0;
         function showCoffeeToast() {
             coffeeToastShown++;
-            // Show every 2nd copy, max 3 times per session
-            if (coffeeToastShown % 2 !== 0 || coffeeToastShown > 6) return;
+            // Show on 1st, 3rd, 5th copy only (odd numbers, max 3 shows)
+            if (coffeeToastShown % 2 === 0 || coffeeToastShown > 5) return;
             
             const toast = document.createElement('div');
             toast.innerHTML = `
