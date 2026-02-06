@@ -34,18 +34,27 @@ const teaseMessages = [
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const senderName = urlParams.get('from');
+	const toName = urlParams.get('to');
     const trackingId = urlParams.get('id');
     const trackView = urlParams.get('track');
     
     if (trackView) {
         // Dashboard view - show tracking dashboard
         showDashboard(trackView);
-    } else if (senderName && trackingId) {
+    } else if (toName && senderName && trackingId) {
+		// Valentine link with tracking - show question and record view
+        currentTrackingId = trackingId;
+        showQuestionScreen(decodeURIComponent(senderName), decodeURIComponent(toName));
+        recordView(trackingId);
+	} else if (senderName && trackingId) {
         // Valentine link with tracking - show question and record view
         currentTrackingId = trackingId;
         showQuestionScreen(decodeURIComponent(senderName));
         recordView(trackingId);
-    } else if (senderName) {
+    } else if (toName && senderName) {
+		// Legacy link without tracking - just show question
+        showQuestionScreen(decodeURIComponent(senderName), decodeURIComponent(toName));
+	} else if (senderName) {
         // Legacy link without tracking - just show question
         showQuestionScreen(decodeURIComponent(senderName));
     } else {
@@ -212,6 +221,17 @@ function showQuestionScreen(senderName) {
     // Set the sender's name
     document.getElementById('senderName').textContent = senderName;
     document.getElementById('senderNameSuccess').textContent = senderName;
+    
+    showScreen('questionScreen');
+}
+
+function showQuestionScreen(senderName, toName) {
+    initFloatingHearts();
+    
+    // Set the sender's name
+    document.getElementById('senderName').textContent = senderName;
+    document.getElementById('senderNameSuccess').textContent = senderName;
+	document.getElementById('toName').textContent = toName;
     
     showScreen('questionScreen');
 }
@@ -404,8 +424,16 @@ function testYourself() {
     const link = document.getElementById('generatedLink').value;
     const urlParams = new URLSearchParams(link.split('?')[1]);
     const senderName = urlParams.get('from');
+	const toName = urlParams.get('to');
     
-    if (senderName) {
+	if (toName && senderName) {
+		// Set test mode flag
+        isTestMode = true;
+        showBackButtons(true);
+        
+        // Show the question screen with the name
+        showQuestionScreen(decodeURIComponent(senderName), decodeURIComponent(toName));
+	} else if (senderName) {
         // Set test mode flag
         isTestMode = true;
         showBackButtons(true);
