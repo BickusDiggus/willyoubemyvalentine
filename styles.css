@@ -567,7 +567,6 @@ body {
     color: var(--white);
     padding: 20px 50px;
     font-size: 1.3rem;
-    position: absolute;
     transition: all 0.2s ease;
 }
 
